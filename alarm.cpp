@@ -67,25 +67,9 @@ void loop() {
   int sensorStatus = digitalRead(IR_SENSOR_PIN); // Read sensor status
 
   if (sensorStatus == LOW) { // Assuming HIGH means motion detected
-    count ++;
-    if (count == 3) 
-    {
     setAlarm();
-    }
     Serial.println("!!!!!"); // Print "Motion Detected!" in serial monitor
   }
 
-  // if (!isnan(temperature)) { // Check if temperature reading is valid
-  //   Serial.print("Temperature: ");
-  //   Serial.print(temperature);
-  //   Serial.println(" °C");
-
-  //   if (temperature > TEMPERATURE_THRESHOLD) {
-  //     setAlarm();
-  //     Serial.println("Temperature exceeds threshold! Alarm activated!");
-  //   }
-  // } else {
-  //   Serial.println("Failed to read temperature from DHT sensor");
-  // }
   delay(1000); // Delay between temperature readings
 }

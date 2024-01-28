@@ -6,7 +6,7 @@ mongo_client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = mongo_client["smarthome"]
 collection = db["iot"]
 # MQTT configuration
-mqtt_broker_address = '34.27.59.217'
+mqtt_broker_address = 'x.x.x.x'
 mqtt_topic = 'iot'
 def on_message(client, userdata, message):
  payload = message.payload.decode('utf-8')

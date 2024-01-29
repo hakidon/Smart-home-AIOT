@@ -98,6 +98,7 @@ void checkTemperature() {
   }
 }
 
+//Set blinking red LED and buzzer as alarm
 void setAlarm() {
   int total = 5000;
 
@@ -112,6 +113,7 @@ void setAlarm() {
   digitalWrite(RED_LED_PIN, LOW);
 }
 
+
 void handleAlarm() {
   // Listen to the MQTT topic "security" for setting the security status
   if (client.connected()) {
@@ -125,6 +127,7 @@ void handleAlarm() {
   }
 }
 
+//Sent data to MQTT server
 void handleMQTT() {
   if (!client.connected()) {
     reconnect();
@@ -140,6 +143,7 @@ void handleMQTT() {
   client.publish("ir_sensor", irValue == HIGH ? "1" : "0");
 }
 
+//Listen data from MQTT server
 void callback(char* topic, byte* payload, unsigned int length) {
   String topicStr = String(topic);
 

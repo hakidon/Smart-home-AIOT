@@ -8,35 +8,14 @@ const int relay_motor = 10; // the relay is connected to pin 2 of the Arduino bo
 
 void setup() {
   pinMode(LED_PIN, OUTPUT);
-    pinMode(relay_motor, OUTPUT);
+  pinMode(relay_motor, OUTPUT);
   pinMode(IR_SENSOR_PIN, INPUT); // Set IR sensor pin as input
   Serial.begin(9600);
-  dht.begin();
 }
 
 
 
 void loop() {
-  float temperature = dht.readTemperature();
-  int sensorStatus = digitalRead(IR_SENSOR_PIN); // Read sensor status
-
-  if (sensorStatus == LOW) { // Assuming HIGH means motion detected
-      digitalWrite(LED_PIN, HIGH); // Turn the motor on
             digitalWrite(relay_motor, HIGH); // Turn the motor on
- // Print "Motion Detected!" in serial monitor
-  }
 
-  // if (!isnan(temperature)) { // Check if temperature reading is valid
-  //   Serial.print("Temperature: ");
-  //   Serial.print(temperature);
-  //   Serial.println(" °C");
-
-  //   if (temperature > TEMPERATURE_THRESHOLD) {
-  //     setAlarm();
-  //     Serial.println("Temperature exceeds threshold! Alarm activated!");
-  //   }
-  // } else {
-  //   Serial.println("Failed to read temperature from DHT sensor");
-  // }
-  delay(1000); // Delay between temperature readings
 }
